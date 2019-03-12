@@ -10,16 +10,16 @@
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
 
     </head>
-
+   
     <body>
         <section>
             <br>
             <div>
                 <?php
 
-                    $scoreHumain = $_GET["scoreHumain"];
-                    $scoreRobot = $_GET["scoreRobot"];
-                    $joueur = $_GET["joueur"];
+                    $scoreHumain = htmlspecialchars($_GET["scoreHumain"]);
+                    $scoreRobot = htmlspecialchars($_GET["scoreRobot"]);
+                    $joueur = htmlspecialchars($_GET["joueur"]);
 
                     echo "<br>";
                     echo "<p>Ton score: " . $scoreHumain . "</p>";
@@ -32,12 +32,14 @@
                         echo "<h1>:p</h1>";
                         echo "On rejoue ?<br><br><br>";
                     }
+
                     elseif ($scoreHumain > $scoreRobot)
                     {
                         echo "Tu as gagné " . $joueur . "...<br>";
                         echo "<h1>:(</h1>";
                         echo "On rejoue ?<br><br><br>";
                     }
+
                     elseif ($scoreHumain == $scoreRobot)
                     {
                         echo "égalité !?!<br>";
