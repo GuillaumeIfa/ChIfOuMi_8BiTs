@@ -11,7 +11,7 @@
 
     </head>
 
-    <body>
+       <body>
         <section>
             <br>
             <div>
@@ -26,58 +26,66 @@
                      $robot = $tableau[$random];
                      $resultat = 3;
                      $human = 3;
-                     $manche = $_POST["manche"];
-                     $scoreHumain = $_POST["scoreHumain"];
-                     $scoreRobot = $_POST["scoreRobot"];
-                     $joueur = $_POST["joueur"];
+                     $manche = htmlspecialchars($_POST["manche"]);
+                     $scoreHumain = htmlspecialchars($_POST["scoreHumain"]);
+                     $scoreRobot = htmlspecialchars($_POST["scoreRobot"]);
+                     $joueur = htmlspecialchars($_POST["joueur"]);
                      $joueur = ucwords($joueur);
 
                      if (isset($_POST["pierre"]))
                      {
-                         $human = $_POST["pierre"];
+                         $human = htmlspecialchars($_POST["pierre"]);
 
                          if($robot == "feuille")
                          {
                              $resultat = 0;
                          }
+
                          elseif($robot == "ciseaux")
                          {
                              $resultat =  1;
                          }
+
                          elseif($robot == $human)
                          {
                              $resultat = 2;
                          }
                      }
+
                      elseif (isset($_POST["feuille"]))
                      {
-                         $human = $_POST["feuille"];
+                         $human = htmlspecialchars($_POST["feuille"]);
 
                          if($robot == "ciseaux")
                          {
                              $resultat = 0;
                          }
+
                          elseif($robot == "pierre")
                          {
                              $resultat =  1;
                          }
+
                          elseif($robot == $human)
                          {
                              $resultat = 2;
                          }
                      }
+
                      elseif (isset($_POST["ciseaux"]))
                      {
-                         $human = $_POST["ciseaux"];
+                         $human = htmlspecialchars($_POST["ciseaux"]);
 
                          if ($robot == "pierre")
                          {
                              $resultat = 0;
                          }
+
                          elseif ($robot == "feuille")
                          {
                              $resultat =  1;
                          }
+
                          elseif ($robot == $human)
                          {
                              $resultat = 2;
@@ -89,11 +97,13 @@
                          echo "<br><br><br><br>Tu as perdu !<br><br>";
                          $scoreRobot++;
                      }
+
                      elseif ($resultat == 1)
                      {
                          echo "<br><br><br><br>Tu as gagné !<br><br>";
                          $scoreHumain++;
                      }
+
                      elseif ($resultat == 2)
                      {
                          echo "<br><br><br><br>Egalité !<br><br>";
@@ -104,6 +114,7 @@
                          $manche--;
                          echo "J'ai joué " . $robot . " !<br><br>";
                      }
+
                      else
                      {
                          echo "<br><br><br><br>A toi de jouer " . $joueur . " !";
