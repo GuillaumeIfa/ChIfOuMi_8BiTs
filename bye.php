@@ -12,7 +12,7 @@
 
     <body>
 
-        <?php $joueur = $_GET["joueur"]; ?>
+        <?php $joueur = htmlspecialchars($_GET["joueur"]); ?>
 
         <img id="chien" src="./IMG/chien.png" alt="Tête de chien qui tourne"><br>
         <!-- Bisous MisuFtw -->
